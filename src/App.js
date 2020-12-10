@@ -79,21 +79,45 @@ class App extends Component {
       console.log("lline");
       map.addSource("Line3", {
         type: "geojson",
-        data: "./line3.geojson",
+        data: "./L3ReHiRePro.geojson",
       });
-      map.addLayer({
-        id: "line3",
-        type: "FeatureCollection",
-        source: "Line3",
-        layout: {
-          "line-join": "round",
-          "line-cap": "round",
+      map.addLayer(
+        {
+          id: "line3",
+          type: "line",
+          source: "Line3",
+          layout: {
+            "line-join": "round",
+            "line-cap": "round",
+          },
+          paint: {
+            "line-color": "red",
+            "line-width": 10,
+          },
         },
-        paint: {
-          "line-color": "red",
-          "line-width": 10,
-        },
+        "streams-61ykr8"
+      );
+
+      map.addSource("Line3Can", {
+        type: "geojson",
+        data: "./L3CanRe.geojson",
       });
+      map.addLayer(
+        {
+          id: "line3Can",
+          type: "line",
+          source: "Line3Can",
+          layout: {
+            "line-join": "round",
+            "line-cap": "round",
+          },
+          paint: {
+            "line-color": "red",
+            "line-width": 10,
+          },
+        },
+        "streams-61ykr8"
+      );
     };
 
     map.on("load", function () {
@@ -125,7 +149,7 @@ class App extends Component {
             chapter.onChapterExit.forEach(setLayerOpacity);
           }
         });
-      addLine3();
+      // addLine3();
     });
 
     window.addEventListener("resize", scroller.resize);

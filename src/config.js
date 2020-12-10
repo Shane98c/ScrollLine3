@@ -1,5 +1,5 @@
 var config = {
-  style: "mapbox://styles/shane98c/ckgkxpw270tm219mh4rt8bdf4",
+  style: "mapbox://styles/shane98c/ckii8dkdt2k8y19qyhtov5dda",
   accessToken:
     "pk.eyJ1Ijoic2hhbmU5OGMiLCJhIjoiY2o3dzk2anVtMG5hOTMzbzIyZzZja3ZhMyJ9.JdJS0IEbZZ7S6r3Nr87MJg",
   showMarkers: false,
@@ -29,7 +29,7 @@ var config = {
       ],
       onChapterExit: [
         // {
-        //     layer: 'layer-name',
+        //     layer: 'layer-name',m
         //     opacity: 0
         // }
       ],
@@ -72,6 +72,21 @@ var config = {
       location: {
         center: [-91, 46.803],
         zoom: 6,
+        pitch: 0,
+        bearing: 0,
+        speed: 0.5,
+      },
+      onChapterEnter: [],
+      onChapterExit: [],
+    },
+    {
+      id: "other-id3",
+      title: "not for MN",
+      // image: "./tar.jpeg",
+      description: "They should stay where they are.",
+      location: {
+        center: [-94, 46.803],
+        zoom: 8,
         pitch: 0,
         bearing: 0,
         speed: 0.5,
