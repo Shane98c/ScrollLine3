@@ -5,7 +5,7 @@ var config = {
   showMarkers: false,
   theme: "dark",
   alignment: "right",
-  use3dTerrain: true,
+  // use3dTerrain: true,
   title: "Line 3 Tar Sands Oil Pipeline",
   //   subtitle: "A descriptive and interesting subtitle to draw in the reader",
   //   byline: "By a Digital Storyteller",
