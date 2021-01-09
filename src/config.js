@@ -5,19 +5,21 @@ var config = {
   showMarkers: false,
   theme: "dark",
   alignment: "right",
+  use3dTerrain: true,
   title: "Line 3 Tar Sands Oil Pipeline",
   //   subtitle: "A descriptive and interesting subtitle to draw in the reader",
   //   byline: "By a Digital Storyteller",
   //   footer: "Source: source citations, etc.",
   chapters: [
     {
-      id: "slug-style-id",
-      title: "Indigenous lands in MN",
-      image: "./manomin.jpg",
-      description: "Are cool and good",
+      id: "tarSands",
+      title: "Canadian Tar Sands are extremely gross and bad",
+      image: "./tar.jpeg",
+      description: "They should stay where they are.",
+      mapAnimation: "easeTo",
       location: {
-        center: [-91, 46.803],
-        zoom: 6,
+        center: [-111.56756, 57.325189],
+        zoom: 17,
         pitch: 0,
         bearing: 0,
       },
@@ -29,49 +31,69 @@ var config = {
       ],
       onChapterExit: [
         // {
-        //     layer: 'layer-name',m
-        //     opacity: 0
-        // }
+        //   layer: "mapbox-satellite",
+        //   opacity: 0,
+        // },
       ],
     },
     {
-      id: "other-identifier",
+      id: "expandTar",
       title: "Canadian Tar Sands are extremely gross and bad",
       // image: "./tar.jpeg",
       description: "They should stay where they are.",
       location: {
-        center: [-96.228, 47.403],
-        zoom: 5.5,
+        center: [-111.556856, 57.311989],
+        zoom: 12,
         pitch: 60,
-        bearing: -43.2,
+        bearing: 0,
         speed: 0.2,
       },
       onChapterEnter: [],
-      onChapterExit: [],
+      onChapterExit: [
+        // {
+        //   layer: "mapbox-satellite",
+        //   opacity: 0,
+        // },
+      ],
     },
     {
-      id: "other-id",
+      id: "leavingTar",
       title: "Canadian Tar Sands are extremely gross and bad",
-      image: "./tar.jpeg",
+      // image: "./tar.jpeg",
       description: "They should stay where they are.",
       location: {
-        center: [-111.020636, 55.8869],
-        zoom: 5.5,
+        center: [-111.556856, 57.325189],
+        zoom: 7,
         pitch: 60,
-        bearing: -43.2,
-        speed: 0.2,
+        bearing: 180,
+        speed: 0.4,
       },
-      onChapterEnter: [],
-      onChapterExit: [],
+      onChapterEnter: [
+        {
+          layer: "mapbox-satellite",
+          opacity: 0,
+          duration: 2000,
+        },
+        {
+          layer: "vt-pipeline",
+          opacity: 1,
+        },
+      ],
+      onChapterExit: [
+        // {
+        //   layer: "mapbox-satellite",
+        //   opacity: 0,
+        // },
+      ],
     },
     {
-      id: "other-id2",
+      id: "other-id5",
       title: "not for MN",
       // image: "./tar.jpeg",
       description: "They should stay where they are.",
       location: {
-        center: [-91, 46.803],
-        zoom: 6,
+        center: [-94, 46.803],
+        zoom: 5,
         pitch: 0,
         bearing: 0,
         speed: 0.5,
@@ -86,7 +108,7 @@ var config = {
       description: "They should stay where they are.",
       location: {
         center: [-94, 46.803],
-        zoom: 8,
+        zoom: 7,
         pitch: 0,
         bearing: 0,
         speed: 0.5,

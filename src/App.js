@@ -75,51 +75,6 @@ class App extends Component {
     // instantiate the scrollama
     const scroller = scrollama();
 
-    const addLine3 = () => {
-      console.log("lline");
-      map.addSource("Line3", {
-        type: "geojson",
-        data: "./L3ReHiRePro.geojson",
-      });
-      map.addLayer(
-        {
-          id: "line3",
-          type: "line",
-          source: "Line3",
-          layout: {
-            "line-join": "round",
-            "line-cap": "round",
-          },
-          paint: {
-            "line-color": "red",
-            "line-width": 10,
-          },
-        },
-        "streams-61ykr8"
-      );
-
-      map.addSource("Line3Can", {
-        type: "geojson",
-        data: "./L3CanRe.geojson",
-      });
-      map.addLayer(
-        {
-          id: "line3Can",
-          type: "line",
-          source: "Line3Can",
-          layout: {
-            "line-join": "round",
-            "line-cap": "round",
-          },
-          paint: {
-            "line-color": "red",
-            "line-width": 10,
-          },
-        },
-        "streams-61ykr8"
-      );
-    };
-
     map.on("load", function () {
       // setup the instance, pass callback functions
       scroller
@@ -161,18 +116,19 @@ class App extends Component {
     const currentChapterID = this.state.currentChapter.id;
     return (
       <div>
+        {config.title && (
+          <div id="header" className={theme}>
+            <h1>{config.title}</h1>
+            {config.subtitle && <h2>{config.subtitle}</h2>}
+            {config.byline && <p>{config.byline}</p>}
+            <img src="./giniw.jpg" />
+          </div>
+        )}
         <div
           ref={(el) => (this.mapContainer = el)}
           className="absolute top right left bottom"
         />
         <div id="story">
-          {config.title && (
-            <div id="header" className={theme}>
-              <h1>{config.title}</h1>
-              {config.subtitle && <h2>{config.subtitle}</h2>}
-              {config.byline && <p>{config.byline}</p>}
-            </div>
-          )}
           <div id="features" className={alignments[config.alignment]}>
             {config.chapters.map((chapter) => (
               <Chapter
