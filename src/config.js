@@ -24,10 +24,10 @@ var config = {
         bearing: 0,
       },
       onChapterEnter: [
-        // {
-        //     layer: 'layer-name',
-        //     opacity: 1
-        // }
+        {
+          layer: "mapbox-satellite",
+          opacity: 1,
+        },
       ],
       onChapterExit: [
         // {
@@ -40,7 +40,8 @@ var config = {
       id: "expandTar",
       title: "Canadian Tar Sands are extremely gross and bad",
       // image: "./tar.jpeg",
-      description: "They should stay where they are.",
+      description:
+        "If we have any chance of keeping our climeate habitable they must stay in the ground",
       location: {
         center: [-111.556856, 57.311989],
         zoom: 12,
@@ -48,32 +49,34 @@ var config = {
         bearing: 0,
         speed: 0.2,
       },
-      onChapterEnter: [],
+      onChapterEnter: [
+        {
+          layer: "mapbox-satellite",
+          opacity: 1,
+        },
+      ],
       onChapterExit: [
-        // {
-        //   layer: "mapbox-satellite",
-        //   opacity: 0,
-        // },
+        {
+          layer: "mapbox-satellite",
+          opacity: 0,
+        },
       ],
     },
     {
       id: "leavingTar",
-      title: "Canadian Tar Sands are extremely gross and bad",
+      title: "Pipelines are used to transport a toxic slurry",
       // image: "./tar.jpeg",
-      description: "They should stay where they are.",
+      description: "Across our entire continent",
+      mapAnimation: "jumpTo",
+
       location: {
-        center: [-111.556856, 57.325189],
-        zoom: 7,
-        pitch: 60,
-        bearing: 180,
-        speed: 0.4,
+        center: [-100.57581, 49.34759],
+        zoom: 5,
+        pitch: 0,
+        // bearing: 180,
+        // speed: 0.4,
       },
       onChapterEnter: [
-        {
-          layer: "mapbox-satellite",
-          opacity: 0,
-          duration: 2000,
-        },
         {
           layer: "vt-pipeline",
           opacity: 1,
@@ -87,25 +90,56 @@ var config = {
       ],
     },
     {
-      id: "other-id5",
-      title: "not for MN",
+      id: "spills",
+      title: "Pipelines spill, everytime",
       // image: "./tar.jpeg",
-      description: "They should stay where they are.",
+      description: "These are spills within the US",
+      location: {
+        center: [-97.61394, 38.46505],
+        zoom: 4,
+        pitch: 0,
+        bearing: 0,
+        speed: 0.5,
+      },
+      onChapterEnter: [
+        {
+          layer: "spills",
+          "circle-opacity": 1,
+        },
+      ],
+      onChapterExit: [
+        {
+          layer: "spills",
+          opacity: 0,
+        },
+      ],
+    },
+    {
+      id: "other-id5",
+      title: "These Tarsands aren't for Minnesota",
+      // image: "./tar.jpeg",
+      description: "Yet the risks are.",
       location: {
         center: [-94, 46.803],
-        zoom: 5,
+        zoom: 6,
         pitch: 0,
         bearing: 0,
         speed: 0.5,
       },
       onChapterEnter: [],
-      onChapterExit: [],
+      onChapterExit: [
+        {
+          layer: "vt-pipeline",
+          opacity: 0,
+        },
+      ],
     },
     {
       id: "other-id3",
-      title: "not for MN",
+      title: "Pipelines cross hundreds of waterbodies",
       // image: "./tar.jpeg",
-      description: "They should stay where they are.",
+      description: "Risking drinking water, and the entire Mississippi River.",
+      alignment: "left",
       location: {
         center: [-94, 46.803],
         zoom: 7,
@@ -113,7 +147,46 @@ var config = {
         bearing: 0,
         speed: 0.5,
       },
-      onChapterEnter: [],
+      onChapterEnter: [
+        {
+          layer: "l3permroute",
+          "circle-opacity": 1,
+        },
+        {
+          layer: "streams",
+          opacity: 1,
+        },
+      ],
+      onChapterExit: [],
+    },
+    {
+      id: "palisade",
+      title: "Waterprotectors are fighting for a future for all of us",
+      // image: "./tar.jpeg",
+      description:
+        "At the site of one of two locations where the proposed pipeline crosses the Mississippii River.",
+      location: {
+        center: [-93.34358, 46.8377],
+        zoom: 10.5,
+        pitch: 0,
+        bearing: 0,
+        speed: 0.5,
+      },
+      onChapterEnter: [
+        {
+          layer: "l3permroute",
+          "circle-opacity": 1,
+        },
+        {
+          layer: "mapbox-satellite",
+          opacity: 1,
+          duratiion: 2000,
+        },
+        {
+          layer: "streams",
+          opacity: 0,
+        },
+      ],
       onChapterExit: [],
     },
   ],

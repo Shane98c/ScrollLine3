@@ -121,7 +121,11 @@ class App extends Component {
             <h1>{config.title}</h1>
             {config.subtitle && <h2>{config.subtitle}</h2>}
             {config.byline && <p>{config.byline}</p>}
-            <img src="./giniw.jpg" />
+            <img
+              src="./giniw.jpg"
+              alt="Water Protectors stop construction on Line 3."
+            />
+            vvv Scroll vvv
           </div>
         )}
         <div
