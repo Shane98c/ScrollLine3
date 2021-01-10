@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import ReactDOMServer from "react-dom/server";
 import "./App.css";
 import mapboxgl from "mapbox-gl";
 import scrollama from "scrollama";
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 const layerTypes = {
   fill: ["fill-opacity"],
@@ -44,13 +49,14 @@ class App extends Component {
     mapboxgl.accessToken = config.accessToken;
 
     const map = new mapboxgl.Map({
-      container: this.mapContainer,
+      container: "map",
       style: config.style,
       center: mapStart.center,
       zoom: mapStart.zoom,
       pitch: mapStart.pitch,
       bearing: mapStart.bearing,
       transformRequest: transformRequest,
+      interactive: false,
     });
 
     const marker = new mapboxgl.Marker();
@@ -105,6 +111,56 @@ class App extends Component {
           }
         });
       // addLine3();
+      var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+      });
+      map.on("mouseenter", "spills", function (e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = "pointer";
+        console.log(e.features[0].properties["Release of Bbls"]);
+        console.log(e.features[0]);
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = ReactDOMServer.renderToStaticMarkup(
+          <div>
+            <div>{e.features[0].properties["Local Datetime"]}</div>
+            <div>
+              Barrels spilled:{" "}
+              <b>
+                {numberWithCommas(
+                  e.features[0].properties["Unintentional Release Bbls"]
+                )}
+              </b>
+            </div>
+            <div>
+              Total cost:{" "}
+              <b>${numberWithCommas(e.features[0].properties["Total Cost"])}</b>
+            </div>
+            {e.features[0].properties["Est Cost Oper Paid"] ? (
+              <div>
+                Cost Operator Paid:{" "}
+                <b>
+                  $
+                  {numberWithCommas(
+                    e.features[0].properties["Est Cost Oper Paid"]
+                  )}
+                </b>
+              </div>
+            ) : null}
+          </div>
+        );
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(coordinates).setHTML(description).addTo(map);
+      });
     });
 
     window.addEventListener("resize", scroller.resize);
@@ -128,10 +184,7 @@ class App extends Component {
             vvv Scroll vvv
           </div>
         )}
-        <div
-          ref={(el) => (this.mapContainer = el)}
-          className="absolute top right left bottom"
-        />
+        <div ref={(el) => (this.mapContainer = el)} id="map" />
         <div id="story">
           <div id="features" className={alignments[config.alignment]}>
             {config.chapters.map((chapter) => (

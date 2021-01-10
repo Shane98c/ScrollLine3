@@ -29,12 +29,7 @@ var config = {
           opacity: 1,
         },
       ],
-      onChapterExit: [
-        // {
-        //   layer: "mapbox-satellite",
-        //   opacity: 0,
-        // },
-      ],
+      onChapterExit: [],
     },
     {
       id: "expandTar",
@@ -93,7 +88,7 @@ var config = {
       id: "spills",
       title: "Pipelines spill, everytime",
       // image: "./tar.jpeg",
-      description: "These are spills within the US",
+      description: "Hover for spill details.",
       location: {
         center: [-97.61394, 38.46505],
         zoom: 4,
@@ -105,6 +100,10 @@ var config = {
         {
           layer: "spills",
           "circle-opacity": 1,
+        },
+        {
+          layer: "vt-pipeline",
+          opacity: 1,
         },
       ],
       onChapterExit: [
@@ -150,11 +149,16 @@ var config = {
       onChapterEnter: [
         {
           layer: "l3permroute",
-          "circle-opacity": 1,
+          opacity: 1,
+        },
+        {
+          layer: "mapbox-satellite",
+          opacity: 0,
+          duratiion: 2000,
         },
         {
           layer: "streams",
-          opacity: 1,
+          opacity: ["interpolate", ["linear"], ["zoom"], 6, 0, 9, 1],
         },
       ],
       onChapterExit: [],
