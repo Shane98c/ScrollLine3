@@ -66,6 +66,8 @@ h1 {
 }
 .step {
   padding-bottom: 50vh;
+  pointer-events: none;
+
   /* margin-bottom: 10vh; */
   opacity: 0.25;
 }
