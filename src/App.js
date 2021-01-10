@@ -127,7 +127,7 @@ class App extends Component {
             ) : null}
             {e.features[0].properties["Unintentional Release Bbls"] ? (
               <div>
-                Barrels spilled:{" "}
+                Barrels Spilled:{" "}
                 <b>
                   {numberWithCommas(
                     e.features[0].properties["Unintentional Release Bbls"]
