@@ -81,7 +81,7 @@ class App extends Component {
     // instantiate the scrollama
     const scroller = scrollama();
 
-    map.on("load", function () {
+    map.on("load", () => {
       // setup the instance, pass callback functions
       scroller
         .setup({
@@ -115,27 +115,34 @@ class App extends Component {
         closeButton: false,
         closeOnClick: false,
       });
-      map.on("mouseenter", "spills", function (e) {
+      map.on("mouseenter", "spills", (e) => {
+        if (this.state.currentChapter.id !== "spills") return;
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = "pointer";
-        console.log(e.features[0].properties["Release of Bbls"]);
-        console.log(e.features[0]);
         var coordinates = e.features[0].geometry.coordinates.slice();
         var description = ReactDOMServer.renderToStaticMarkup(
           <div>
-            <div>{e.features[0].properties["Local Datetime"]}</div>
-            <div>
-              Barrels spilled:{" "}
-              <b>
-                {numberWithCommas(
-                  e.features[0].properties["Unintentional Release Bbls"]
-                )}
-              </b>
-            </div>
-            <div>
-              Total cost:{" "}
-              <b>${numberWithCommas(e.features[0].properties["Total Cost"])}</b>
-            </div>
+            {e.features[0].properties["Local Datetime"] ? (
+              <div>{e.features[0].properties["Local Datetime"]}</div>
+            ) : null}
+            {e.features[0].properties["Unintentional Release Bbls"] ? (
+              <div>
+                Barrels spilled:{" "}
+                <b>
+                  {numberWithCommas(
+                    e.features[0].properties["Unintentional Release Bbls"]
+                  )}
+                </b>
+              </div>
+            ) : null}
+            {e.features[0].properties["Est Cost Oper Paid"] ? (
+              <div>
+                Total Cost:{" "}
+                <b>
+                  ${numberWithCommas(e.features[0].properties["Total Cost"])}
+                </b>
+              </div>
+            ) : null}
             {e.features[0].properties["Est Cost Oper Paid"] ? (
               <div>
                 Cost Operator Paid:{" "}
@@ -160,6 +167,10 @@ class App extends Component {
         // Populate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(coordinates).setHTML(description).addTo(map);
+      });
+      map.on("mouseleave", "spills", () => {
+        map.getCanvas().style.cursor = "";
+        popup.remove();
       });
     });
 
