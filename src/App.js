@@ -80,6 +80,51 @@ class App extends Component {
 
     // instantiate the scrollama
     const scroller = scrollama();
+    var popup = new mapboxgl.Popup({
+      closeButton: false,
+      closeOnClick: false,
+    });
+    const createSpillInfoPopup = (e) => {
+      if (this.state.currentChapter.id !== "spills") return;
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = "pointer";
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var description = ReactDOMServer.renderToStaticMarkup(
+        <div>
+          {e.features[0].properties["Local Datetime"] ? (
+            <div>{e.features[0].properties["Local Datetime"]}</div>
+          ) : null}
+          {e.features[0].properties["Unintentional Release Bbls"] ? (
+            <div>
+              Barrels Spilled:{" "}
+              <b>
+                {numberWithCommas(
+                  e.features[0].properties["Unintentional Release Bbls"]
+                )}
+              </b>
+            </div>
+          ) : null}
+          {e.features[0].properties["Est Cost Oper Paid"] ? (
+            <div>
+              Total Cost:{" "}
+              <b>${numberWithCommas(e.features[0].properties["Total Cost"])}</b>
+            </div>
+          ) : null}
+          {e.features[0].properties["Est Cost Oper Paid"] ? (
+            <div>
+              Cost Operator Paid:{" "}
+              <b>
+                $
+                {numberWithCommas(
+                  e.features[0].properties["Est Cost Oper Paid"]
+                )}
+              </b>
+            </div>
+          ) : null}
+        </div>
+      );
+      popup.setLngLat(coordinates).setHTML(description).addTo(map);
+    };
 
     map.on("load", () => {
       // setup the instance, pass callback functions
@@ -90,6 +135,8 @@ class App extends Component {
           progress: true,
         })
         .onStepEnter((response) => {
+          popup.remove();
+
           const chapter = config.chapters.find(
             (chap) => chap.id === response.element.id
           );
@@ -110,63 +157,13 @@ class App extends Component {
             chapter.onChapterExit.forEach(setLayerOpacity);
           }
         });
-      // addLine3();
-      var popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false,
-      });
+
+      //Map interaction events
       map.on("mouseenter", "spills", (e) => {
-        if (this.state.currentChapter.id !== "spills") return;
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = "pointer";
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = ReactDOMServer.renderToStaticMarkup(
-          <div>
-            {e.features[0].properties["Local Datetime"] ? (
-              <div>{e.features[0].properties["Local Datetime"]}</div>
-            ) : null}
-            {e.features[0].properties["Unintentional Release Bbls"] ? (
-              <div>
-                Barrels Spilled:{" "}
-                <b>
-                  {numberWithCommas(
-                    e.features[0].properties["Unintentional Release Bbls"]
-                  )}
-                </b>
-              </div>
-            ) : null}
-            {e.features[0].properties["Est Cost Oper Paid"] ? (
-              <div>
-                Total Cost:{" "}
-                <b>
-                  ${numberWithCommas(e.features[0].properties["Total Cost"])}
-                </b>
-              </div>
-            ) : null}
-            {e.features[0].properties["Est Cost Oper Paid"] ? (
-              <div>
-                Cost Operator Paid:{" "}
-                <b>
-                  $
-                  {numberWithCommas(
-                    e.features[0].properties["Est Cost Oper Paid"]
-                  )}
-                </b>
-              </div>
-            ) : null}
-          </div>
-        );
-
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
-
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(coordinates).setHTML(description).addTo(map);
+        createSpillInfoPopup(e);
+      });
+      map.on("click", "spills", (e) => {
+        createSpillInfoPopup(e);
       });
       map.on("mouseleave", "spills", () => {
         map.getCanvas().style.cursor = "";
@@ -192,7 +189,6 @@ class App extends Component {
               src="./giniw.jpg"
               alt="Water Protectors stop construction on Line 3."
             />
-            vvv Scroll vvv
           </div>
         )}
         <div ref={(el) => (this.mapContainer = el)} id="map" />
