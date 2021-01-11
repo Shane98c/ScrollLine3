@@ -105,6 +105,10 @@ var config = {
           layer: "vt-pipeline",
           opacity: 1,
         },
+        {
+          layer: "crudeoil-pipelines-us-eia",
+          opacity: 1,
+        },
       ],
       onChapterExit: [
         {
@@ -129,6 +133,14 @@ var config = {
       onChapterExit: [
         {
           layer: "vt-pipeline",
+          opacity: 0,
+        },
+        {
+          layer: "crudeoil-pipelines-us-eia",
+          opacity: 0,
+        },
+        {
+          layer: "l3permroute",
           opacity: 0,
         },
       ],
