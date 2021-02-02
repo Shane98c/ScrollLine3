@@ -72,7 +72,13 @@ class App extends Component {
     function setLayerOpacity(layer) {
       var paintProps = getLayerPaintType(layer.layer);
       paintProps.forEach(function (prop) {
-        map.setPaintProperty(layer.layer, prop, layer.opacity);
+        var options = {};
+        if (layer.duration) {
+          var transitionProp = prop + "-transition";
+          options = { duration: layer.duration };
+          map.setPaintProperty(layer.layer, transitionProp, options);
+        }
+        map.setPaintProperty(layer.layer, prop, layer.opacity, options);
       });
     }
 
@@ -183,12 +189,12 @@ class App extends Component {
         {config.title && (
           <div id="header" className={theme}>
             <h1>{config.title}</h1>
-            {config.subtitle && <h2>{config.subtitle}</h2>}
+            {config.subtitle && <h3>{config.subtitle}</h3>}
             {config.byline && <p>{config.byline}</p>}
-            <img
+            {/* <img
               src="./giniw.jpg"
               alt="Water Protectors stop construction on Line 3."
-            />
+            /> */}
           </div>
         )}
         <div ref={(el) => (this.mapContainer = el)} id="map" />
@@ -205,7 +211,14 @@ class App extends Component {
           </div>
           {config.footer && (
             <div id="footer" className={theme}>
-              <p>{config.footer}</p>
+              <p>
+                Please suggest or submit content, data, imagery, or any changes
+                to Shane Loeffler.{" "}
+                <a href="mailto:shane98c@gmail.com">shane98c@gmail.com</a>{" "}
+                <a target="_blank" href="https://twitter.com/shane98c">
+                  @shane98c
+                </a>{" "}
+              </p>
             </div>
           )}
         </div>
@@ -221,7 +234,10 @@ function Chapter({ id, theme, title, image, description, currentChapterID }) {
       <div className={theme}>
         {title && <h3 className="title">{title}</h3>}
         {image && <img src={image} alt={title}></img>}
-        {description && <p>{description}</p>}
+
+        {description && (
+          <p dangerouslySetInnerHTML={{ __html: description }}></p>
+        )}
       </div>
     </div>
   );

@@ -5,8 +5,9 @@ body {
 }
 a,
 a:hover,
-a:visited {
-  color: #0071bc;
+a {
+  color: white;
+  cursor: pointer;
 }
 .mapboxgl-map {
   top: 0;
@@ -16,10 +17,15 @@ a:visited {
   /* z-index: 1; */
 }
 #header {
-  width: 100%;
-  height: 100vh;
   text-align: center;
   background-color: #1a2637;
+  position: absolute;
+  top: calc(50vh - 200px);
+  z-index: 10000;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 100%;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 #header img {
@@ -39,12 +45,17 @@ h1 {
   text-align: center;
   line-height: 25px;
   font-size: 13px;
+  pointer-events: auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 #story {
   /* transform needed to avoid z-index issues in safari */
   transform: translate3d(0, 0, 0);
   pointer-events: none;
+  a {
+    pointer-events: auto;
+  }
 }
 #features {
   padding-top: 10vh;
@@ -73,18 +84,20 @@ h1 {
 .step {
   padding-bottom: 50vh;
   pointer-events: none;
-
   margin-bottom: 10vh;
   opacity: 0.25;
 }
 .step.active {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .step div {
   padding: 25px 25px;
   /* line-height: 25px; */
   font-size: 13px;
+  border-radius: 20px;
+  pointer-events: auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .step img {
