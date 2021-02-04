@@ -154,7 +154,7 @@ var config = {
         },
         {
           layer: "l3can",
-          opacity: 1,
+          opacity: 0.5,
         },
       ],
       onChapterExit: [],
@@ -208,7 +208,7 @@ var config = {
         "The construction and inevitable spills will desecrate treaty lands",
       // image: "./tar.jpeg",
       description:
-        "Breaking federal law across four separate treaty agreements.",
+        "The expanded Line 3 crosses four different treaty lands. Treaties protect the rights of indigenous people to hunt, fish, and gather on their lands. The destruction, both from construction and inevitable spills, is already disrupting the ability of native communities to gather the sustenance they need and exercise their rights on their own land.",
       location: {
         center: [-94, 47.803],
         zoom: 6,
@@ -284,7 +284,7 @@ var config = {
       title: "Enbridge is now rushing construction",
       // image: "./lockdown.jpg",
       description:
-        "As soon as the final state and federal permits were granted by Trump and Walz Enbridge began construction at unsafe speeds. Thousands of workers from out of state have flooded rural towns in Northern Minnesota enhancing resident's covid risks and being put in unsafe working environments themselves. One Enbridge employee has already lost their life as Enbridge rushes to get pipeline into the ground before legal appeals can be heard.",
+        "As soon as the final state and federal permits were granted by Trump and Walz, Enbridge began construction at unsafe speeds. Thousands of workers from out of state have flooded rural towns in Northern Minnesota, enhancing resident's covid risks and being put in unsafe working environments themselves. One Enbridge employee has already lost his life as Enbridge rushes to get pipeline into the ground before legal appeals can be heard.",
       location: {
         center: [-94.42717, 47.14278],
         zoom: 6.5,
@@ -323,10 +323,10 @@ var config = {
     },
     {
       id: "palisade",
-      title: "Resistence is building",
+      title: "Resistance is building",
       image: "./lockdown.jpg",
       description:
-        "As Enbridge rushes ahead, Water Protectors have begun to put their bodies on the line to block the destuction of Native lands and to protect future generations. Consider supporting their efforts and getting involved here: <a href='https://linktr.ee/stopline3' target='_blank'>linktr.ee/stopline3</a>",
+        "As Enbridge rushes ahead, Water Protectors have begun to put their bodies on the line to block the destruction of Native lands and to protect future generations. Consider supporting their efforts and getting involved here: <a href='https://linktr.ee/stopline3' target='_blank'>linktr.ee/stopline3</a>",
       location: {
         center: [-93.365487, 46.873162],
         zoom: 14.5,
