@@ -147,7 +147,7 @@ class App extends Component {
             (chap) => chap.id === response.element.id
           );
           setState({ currentChapter: chapter });
-          map.flyTo(chapter.location);
+          map[chapter.mapAnimation || "flyTo"](chapter.location);
           if (config.showMarkers) {
             marker.setLngLat(chapter.location.center);
           }
@@ -211,14 +211,36 @@ class App extends Component {
           </div>
           {config.footer && (
             <div id="footer" className={theme}>
-              <p>
+              <h2>Support the Movement to #StopLine3</h2>
+              <div className="callToAction">
+                <a href="https://linktr.ee/stopline3" target="_blank">
+                  <div className="actionContainer">Donate or Join</div>
+                </a>
+                {/* <a href="https://linktr.ee/stopline3" target="_blank">
+                  <div className="actionContainer">
+                    <div>Follow</div>
+                  </div>
+                </a> */}
+              </div>
+              <div className="credits">
+                This map was created in collaboration with the
+                <div>
+                  <a href="https://www.facebook.com/SftPTC" target="_blank">
+                    Twin Cities Branch of Science for the People
+                  </a>
+                </div>
+              </div>
+              <div>
                 Please suggest or submit content, data, imagery, or any changes
                 to Shane Loeffler.{" "}
-                <a href="mailto:shane98c@gmail.com">shane98c@gmail.com</a>{" "}
-                <a target="_blank" href="https://twitter.com/shane98c">
-                  @shane98c
-                </a>{" "}
-              </p>
+                <div>
+                  <a href="mailto:shane98c@gmail.com">shane98c@gmail.com</a>{" "}
+                  {" | "}
+                  <a target="_blank" href="https://twitter.com/shane98c">
+                    @shane98c
+                  </a>
+                </div>
+              </div>
             </div>
           )}
         </div>

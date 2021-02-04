@@ -7,7 +7,7 @@ var config = {
   alignment: "right",
   // use3dTerrain: true,
   title: "Mapping the Black Snake",
-  subtitle: "Line 3 and the fight for a future",
+  subtitle: "Line 3 and the fight for our future",
   byline: "Scroll to explore",
   footer:
     "Please suggest/submit content, changes, etc to this map to Shane Loeffler shane98c@gmail.com @shane98c",
@@ -35,7 +35,7 @@ var config = {
     },
     {
       id: "expandTar",
-      title: "The science on climate change is clear.",
+      title: "The science on climate change is clear",
       // image: "./tar.jpeg",
       description:
         "The future of our planet and civilization are gravely threatened by the continued extraction of Tar Sands. At this late stage in the fight against climate change, extracting more fossil fuels, especially the dirty and wasteful tar sands of Alberta, is clear science denial.",
@@ -53,10 +53,10 @@ var config = {
         },
       ],
       onChapterExit: [
-        {
-          layer: "mapbox-satellite",
-          opacity: 0,
-        },
+        // {
+        //   layer: "mapbox-satellite",
+        //   opacity: 0,
+        // },
       ],
     },
     {
@@ -65,14 +65,14 @@ var config = {
       // image: "./tar.jpeg",
       description:
         "The economics of tar sands require them to be shipped by pipeline. Arguments about the relative safety of train transport vs pipeline transport are a distraction. If we stop pipeline expansion we stop the expansion of tar sand extraction.",
-      mapAnimation: "jumpTo",
+      // mapAnimation: "easeTo",
 
       location: {
-        center: [-89.64654, 49.34759],
+        center: [-89.64654, 47.34759],
         zoom: 4,
         pitch: 0,
         // bearing: 180,
-        // speed: 0.4,
+        speed: 0.7,
       },
       onChapterEnter: [
         {
@@ -92,13 +92,13 @@ var config = {
       title: "Pipelines spill, everytime",
       // image: "./tar.jpeg",
       description:
-        "Just in the last decade of easily accessible data, the scope and cost of pipeline spills is staggering. There are no safe pipelines. Hover over or tap the spill locations for detailed information.",
+        "Just in the last decade of easily accessible data, the scope and cost of pipeline spills is staggering. There are no safe pipelines. <p><b>Hover over or tap</b> the spill locations for detailed information.</p>",
       location: {
         center: [-97.61394, 38.46505],
         zoom: 4,
         pitch: 0,
         bearing: 0,
-        speed: 0.5,
+        speed: 0.4,
       },
       onChapterEnter: [
         {
@@ -115,6 +115,10 @@ var config = {
         },
         {
           layer: "l3permroute",
+          opacity: 0,
+        },
+        {
+          layer: "mapbox-satellite",
           opacity: 0,
         },
       ],
@@ -150,7 +154,7 @@ var config = {
         {
           layer: "l3permroute",
           opacity: 1,
-          duration: 8000,
+          duration: 5000,
         },
         {
           layer: "l3can",
@@ -171,7 +175,7 @@ var config = {
         zoom: 7,
         pitch: 0,
         bearing: 0,
-        speed: 0.5,
+        speed: 0.3,
       },
       onChapterEnter: [
         {
@@ -208,7 +212,7 @@ var config = {
         "The construction and inevitable spills will desecrate treaty lands",
       // image: "./tar.jpeg",
       description:
-        "The expanded Line 3 crosses four different treaty lands. Treaties protect the rights of indigenous people to hunt, fish, and gather on their lands. The destruction, both from construction and inevitable spills, is already disrupting the ability of native communities to gather the sustenance they need and exercise their rights on their own land.",
+        "The expanded Line 3 cuts through the soil and water of four seperate treaty lands. These treaties protect the rights of indigenous people to hunt, fish, and gather on their lands. The destruction, both from construction and inevitable spills, is already disrupting the ability of native communities to gather the sustenance they need and exercise their rights on their own lands.",
       location: {
         center: [-94, 47.803],
         zoom: 6,
@@ -242,7 +246,7 @@ var config = {
       title: "Minnesota Governor Tim Walz has so far failed to stop Line 3",
       // image: "./lockdown.jpg",
       description:
-        "Despite claims of following science and process, the Minnesota Pollution Control Agency failed to account for even basic climate impacts.",
+        "Despite claims of following science and process, the Minnesota Pollution Control Agency failed to account for even basic climate impacts. The MPCA, in concert with the governor and other state agencies played a cowardly game of <a href='https://youtu.be/OiaRW33EtCI' target='_blank'> 'hot potato'</a> with the project - each dodging their duty to protect Minnesota's land, water, and future.",
       location: {
         center: [-93.10223, 44.9552],
         zoom: 16.5,
@@ -284,7 +288,7 @@ var config = {
       title: "Enbridge is now rushing construction",
       // image: "./lockdown.jpg",
       description:
-        "As soon as the final state and federal permits were granted by Trump and Walz, Enbridge began construction at unsafe speeds. Thousands of workers from out of state have flooded rural towns in Northern Minnesota, enhancing resident's covid risks and being put in unsafe working environments themselves. One Enbridge employee has already lost his life as Enbridge rushes to get pipeline into the ground before legal appeals can be heard.",
+        "As soon as the final state and federal permits were granted by Trump and Walz, Enbridge began construction at unsafe speeds. Thousands of workers from out of state have flooded small rural towns in Northern Minnesota, increasing resident's covid risk and being put in unsafe working environments themselves. One Enbridge employee has already <a href='https://www.mprnews.org/story/2020/12/21/contractor-at-enbridge-line-3-pipeline-site-dies-in-accident' target='_blank'>lost his life</a> as Enbridge rushes to get pipeline into the ground before legal appeals can be heard.",
       location: {
         center: [-94.42717, 47.14278],
         zoom: 6.5,
@@ -326,7 +330,7 @@ var config = {
       title: "Resistance is building",
       image: "./lockdown.jpg",
       description:
-        "As Enbridge rushes ahead, Water Protectors have begun to put their bodies on the line to block the destruction of Native lands and to protect future generations. Consider supporting their efforts and getting involved here: <a href='https://linktr.ee/stopline3' target='_blank'>linktr.ee/stopline3</a>",
+        "As Enbridge rushes ahead, Water Protectors are putting their bodies on the line to block the destruction of Native lands and to protect future generations. <p><small>Photo: <a href='https://twitter.com/GiniwCollective' target='_blank'> @GiniwCollective</a></small> </p>",
       location: {
         center: [-93.365487, 46.873162],
         zoom: 14.5,
