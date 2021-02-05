@@ -299,7 +299,7 @@ var config = {
       title: "Biden can reverse Trump's permits",
       image: "./march.png",
       description:
-        "<p>In late January hundreds of people marched to the US Army Corps of Engineers building in St Paul to demand that the office, which is tasked with approving the federal water permits for Line 3, revoke them.</p> Biden's cancellation of the Keystone XL tar sands pipeline set a clear and important precident. The same logic applies to Line 3 and Dakota Access. We must pressure his administration to cancel the federal permits. <a href='https://addup.sierraclub.org/campaigns/tell-federal-officials-do-everything-in-your-power-to-stopline3-pipeline-construction-now/petition' target='_blank'>Sign the petition</a>. ",
+        "<p>In late January hundreds of people marched to the US Army Corps of Engineers building in St Paul to demand that the office, which approved the federal water permits for Line 3 under Trump, revoke them.</p> Biden's cancellation of the Keystone XL tar sands pipeline set a clear and important precident. The same logic applies to Line 3 and Dakota Access. We must pressure his administration to cancel the federal permits. <a href='https://addup.sierraclub.org/campaigns/tell-federal-officials-do-everything-in-your-power-to-stopline3-pipeline-construction-now/petition' target='_blank'>Sign the petition</a>. ",
 
       location: {
         center: [-93.08865, 44.94794],
@@ -309,6 +309,11 @@ var config = {
         speed: 1,
       },
       onChapterEnter: [
+        {
+          layer: "govlabels",
+          opacity: 1,
+          duration: 2000,
+        },
         // {
         //   layer: "l3permroute",
         //   opacity: 1,
@@ -335,7 +340,13 @@ var config = {
         //   opacity: 0,
         // },
       ],
-      onChapterExit: [],
+      onChapterExit: [
+        {
+          layer: "govlabels",
+          opacity: 0,
+          duration: 2000,
+        },
+      ],
     },
     {
       id: "workers",
@@ -355,6 +366,18 @@ var config = {
           layer: "mapbox-satellite",
           opacity: 1,
           duration: 2000,
+        },
+        {
+          layer: "treatiesselected",
+          opacity: 1,
+        },
+        {
+          layer: "treatiesLine",
+          opacity: 1,
+        },
+        {
+          layer: "treatyLabels",
+          opacity: 1,
         },
       ],
       onChapterExit: [
