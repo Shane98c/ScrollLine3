@@ -18,7 +18,7 @@ var config = {
       // image: "./tar.jpeg",
       description:
         "Tar sands are mined in Alberta, disrupting pristine ecosystems in order to extract the dirtiest form of fossil fuels. ",
-      mapAnimation: "easeTo",
+      // mapAnimation: "easeTo",
       location: {
         center: [-111.56756, 57.325189],
         zoom: 17,
@@ -203,6 +203,16 @@ var config = {
           layer: "treatyLabels",
           opacity: 0,
         },
+        {
+          layer: "water",
+          opacity: 1,
+          // duration: 1000,
+        },
+        {
+          layer: "waterway",
+          opacity: 1,
+          // duration: 1000,
+        },
       ],
       onChapterExit: [],
     },
@@ -212,7 +222,7 @@ var config = {
         "The construction and inevitable spills will desecrate treaty lands",
       // image: "./tar.jpeg",
       description:
-        "The expanded Line 3 cuts through the soil and water of four seperate treaty lands. These treaties protect the rights of indigenous people to hunt, fish, and gather on their lands. The destruction, both from construction and inevitable spills, is already disrupting the ability of native communities to gather the sustenance they need and exercise their rights on their own lands.",
+        "The expanded Line 3 cuts through the soil and water of four separate treaty lands. These treaties protect the rights of Indigenous people to hunt, fish, and gather on their lands. The destruction, both from construction and inevitable spills, is already disrupting the ability of native communities to gather the sustenance they need and exercise their rights on their own lands.",
       location: {
         center: [-94, 47.803],
         zoom: 6,
@@ -262,7 +272,7 @@ var config = {
         {
           layer: "govlabels",
           opacity: 1,
-          duration: 2000,
+          duration: 5000,
         },
         {
           layer: "mapbox-satellite",
@@ -401,7 +411,7 @@ var config = {
         "Pipeline construction exacerbates the epidemic of Missing and Murdered Indigenous Women and Relatives (MMIWR)",
       // image: "./lockdown.jpg",
       description:
-        "The <a href='https://dps.mn.gov/divisions/ojp/Documents/missing-murdered-indigenous-women-task-force-report.pdf' target='_blank'>2020 report</a> by the MN MMIWR Taskforce names extractive industries, like oil pipeline construction, as a major factor contributing to the violence against indigneous women, LGBTQ+ and two spirit communities. These groups experience disproportionate rates of sexual violence. 'Man camps', like the one adjacent to the pipeyard coursely visible in this snowy January satellite image, have been found to be a source of this violence.",
+        "The <a href='https://dps.mn.gov/divisions/ojp/Documents/missing-murdered-indigenous-women-task-force-report.pdf' target='_blank'>2020 report</a> by the MN MMIWR Taskforce names extractive industries like oil pipeline construction as a major factor contributing to the violence against indigneous women, LGBTQ+ and two spirit communities. These groups experience disproportionate rates of sexual violence. 'Man camps', like the one adjacent to the pipeyard coursely visible in this snowy January satellite image, have been found to be a source of this violence.",
       location: {
         center: [-94.5166, 46.81615],
         zoom: 12.5,
