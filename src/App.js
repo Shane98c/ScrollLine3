@@ -4,6 +4,31 @@ import "./App.css";
 import mapboxgl from "mapbox-gl";
 import scrollama from "scrollama";
 
+const addInaturalist = (map) => {
+  map.addSource("iNatProjectArea", {
+    type: "raster",
+    tiles: [
+      "https://api.inaturalist.org/v1/places/164277/{z}/{x}/{y}.png?tile_size=256",
+    ],
+  });
+  map.addLayer({
+    id: "iNatProjectArea",
+    source: "iNatProjectArea",
+    type: "raster",
+  });
+  map.addSource("iNatProjectPts", {
+    type: "raster",
+    tiles: [
+      "https://api.inaturalist.org/v1/points/{z}/{x}/{y}.png?captive=any&project_id=94178&ttl=120&style=geotilegrid&tile_size=256&color=%23FF4500",
+    ],
+  });
+  map.addLayer({
+    id: "iNatProjectPts",
+    source: "iNatProjectPts",
+    type: "raster",
+  });
+};
+
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -163,6 +188,8 @@ class App extends Component {
             chapter.onChapterExit.forEach(setLayerOpacity);
           }
         });
+
+      addInaturalist(map);
 
       //Map interaction events
       map.on("mouseenter", "spills", (e) => {
