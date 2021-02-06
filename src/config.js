@@ -30,6 +30,16 @@ var config = {
           layer: "mapbox-satellite",
           opacity: 1,
         },
+        {
+          layer: "water",
+          opacity: 0,
+          // duration: 1000,
+        },
+        {
+          layer: "waterway",
+          opacity: 0,
+          // duration: 1000,
+        },
       ],
       onChapterExit: [],
     },
@@ -38,7 +48,7 @@ var config = {
       title: "The science on climate change is clear",
       // image: "./tar.jpeg",
       description:
-        "The future of our planet and civilization are gravely threatened by the continued extraction of Tar Sands. At this late stage in the fight against climate change, extracting more fossil fuels, especially the dirty and wasteful tar sands of Alberta, is clear science denial.",
+        "The future of our planet and civilization are gravely threatened by the continued extraction of Tar Sands. At this late stage in the fight against climate change, extracting more fossil fuels, especially the dirty and wasteful tar sands of Alberta, is clear science denial. <p><small>Further reading: '<a href='https://nymag.com/intelligencer/2017/07/climate-change-earth-too-hot-for-humans.html' target='_blank'>It is, I promise, worse than you think.</a>'</small></p>",
       location: {
         center: [-111.556856, 57.311989],
         zoom: 12,
@@ -50,6 +60,16 @@ var config = {
         {
           layer: "mapbox-satellite",
           opacity: 1,
+        },
+        {
+          layer: "water",
+          opacity: 0,
+          // duration: 1000,
+        },
+        {
+          layer: "waterway",
+          opacity: 0,
+          // duration: 1000,
         },
       ],
       onChapterExit: [
@@ -120,6 +140,16 @@ var config = {
         {
           layer: "mapbox-satellite",
           opacity: 0,
+        },
+        {
+          layer: "water",
+          opacity: 1,
+          // duration: 1000,
+        },
+        {
+          layer: "waterway",
+          opacity: 1,
+          // duration: 1000,
         },
       ],
       onChapterExit: [

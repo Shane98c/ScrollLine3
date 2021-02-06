@@ -5,7 +5,9 @@ import mapboxgl from "mapbox-gl";
 import scrollama from "scrollama";
 
 function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  if (x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 }
 
 const layerTypes = {
