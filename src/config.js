@@ -337,9 +337,9 @@ var config = {
     {
       id: "biden",
       title: "Biden can reverse Trump's permits",
-      image: "./march.png",
+      image: "./Optimized-march.png",
       description:
-        "<p>In late January hundreds of people marched to the US Army Corps of Engineers building in St Paul to demand that the office, which approved the federal water permits for Line 3 under Trump, revoke them.</p> Biden's cancellation of the Keystone XL tar sands pipeline set a clear and important precident. The same logic applies to Line 3 and Dakota Access. We must pressure his administration to cancel the federal permits. <a href='https://addup.sierraclub.org/campaigns/tell-federal-officials-do-everything-in-your-power-to-stopline3-pipeline-construction-now/petition' target='_blank'>Sign the petition</a>. ",
+        "<p>In late January hundreds of people marched to the US Army Corps of Engineers building in St Paul to demand that the office, which approved the federal water permits for Line 3 under Trump, revoke them.</p> Biden's cancellation of the Keystone XL tar sands pipeline set a clear and important precedent. The same logic applies to Line 3 and Dakota Access. We must pressure his administration to cancel the federal permits. <a href='https://addup.sierraclub.org/campaigns/tell-federal-officials-do-everything-in-your-power-to-stopline3-pipeline-construction-now/petition' target='_blank'>Sign the petition</a>. ",
 
       location: {
         center: [-93.08865, 44.94794],
@@ -393,7 +393,7 @@ var config = {
       title: "Enbridge is now rushing construction",
       // image: "./lockdown.jpg",
       description:
-        "As soon as the final state and federal permits were granted by Trump and Walz, Enbridge began construction at unsafe speeds. Thousands of workers from out of state have flooded small rural towns in Northern Minnesota, increasing resident's covid risk and being put in unsafe working environments themselves. One Enbridge employee has already <a href='https://www.mprnews.org/story/2020/12/21/contractor-at-enbridge-line-3-pipeline-site-dies-in-accident' target='_blank'>lost his life</a> as Enbridge rushes to get pipeline into the ground before legal appeals can be heard.",
+        "As soon as the final state and federal permits were granted by Trump and Walz, Enbridge began construction at unsafe speeds. Thousands of workers from out of state have flooded small rural towns in Northern Minnesota, increasing resident's Covid-19 risk and being put in unsafe working environments themselves. One Enbridge employee has already <a href='https://www.mprnews.org/story/2020/12/21/contractor-at-enbridge-line-3-pipeline-site-dies-in-accident' target='_blank'>lost his life</a> as Enbridge rushes to get pipeline into the ground before legal appeals can be heard.",
       location: {
         center: [-94.42717, 47.14278],
         zoom: 6.5,
@@ -441,7 +441,7 @@ var config = {
         "Pipeline construction exacerbates the epidemic of Missing and Murdered Indigenous Women and Relatives (MMIWR)",
       // image: "./lockdown.jpg",
       description:
-        "The <a href='https://dps.mn.gov/divisions/ojp/Documents/missing-murdered-indigenous-women-task-force-report.pdf' target='_blank'>2020 report</a> by the MN MMIWR Taskforce names extractive industries like oil pipeline construction as a major factor contributing to the violence against indigneous women, LGBTQ+ and two spirit communities. These groups experience disproportionate rates of sexual violence. 'Man camps', like the one adjacent to the pipeyard coursely visible in this snowy January satellite image, have been found to be a source of this violence.",
+        "The <a href='https://dps.mn.gov/divisions/ojp/Documents/missing-murdered-indigenous-women-task-force-report.pdf' target='_blank'>2020 report</a> by the MN MMIWR Taskforce names extractive industries like oil pipeline construction as a major factor contributing to the violence against indigenous women, LGBTQ+ and two spirit communities. These groups experience disproportionate rates of sexual violence. 'Man camps', like the one adjacent to the pipeyard coursely visible in this snowy January satellite image, have been found to be a source of this violence.",
       location: {
         center: [-94.5166, 46.81615],
         zoom: 12.5,
@@ -512,7 +512,7 @@ var config = {
         center: [-93.365487, 46.873162],
         zoom: 14.5,
         pitch: 60,
-        bearing: 90,
+        bearing: 91,
         speed: 0.3,
       },
       onChapterEnter: [
