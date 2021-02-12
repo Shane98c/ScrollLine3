@@ -16,6 +16,13 @@ a {
   position: sticky;
   /* z-index: 1; */
 }
+
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan,
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan
+  .mapboxgl-canvas {
+  touch-action: unset;
+}
+
 #header {
   text-align: center;
   background-color: #1a2637;
